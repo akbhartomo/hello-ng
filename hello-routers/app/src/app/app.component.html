@@ -1,0 +1,12 @@
+<h1>
+  {{title}}
+</h1>
+<nav>
+
+  <a *ngFor="let menu of menus"
+     [routerLink]='menu.url'
+     routerLinkActive="active"
+     [routerLinkActiveOptions]="{exact:true}"> {{menu.content }} </a>
+</nav>
+
+<router-outlet></router-outlet>
