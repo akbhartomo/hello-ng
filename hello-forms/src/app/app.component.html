@@ -1,0 +1,54 @@
+<div class="row">
+  <div class="col-xs-12">
+    <h1>{{title}}</h1>
+  </div>
+</div>
+<hr>
+<div class="row">
+  <div class="col-xs-12">
+    <form #formRef="ngForm" (ngSubmit)="onSubmit(formRef.value)">
+
+      <fieldset ngModelGroup="login">
+        <input
+          [(ngModel)]="username"
+          type="text"
+          name="username"
+          #usernameRef="ngModel"
+          required
+          minlength="3"
+        >
+        <input type="password" ngModel name="password">
+      </fieldset>
+
+      <br/>
+      <div *ngIf="usernameRef.errors?.required">This field is required</div>
+      <div *ngIf="usernameRef.errors?.minlength">
+        This field must be longer than {{usernameRef.errors?.minlength.requiredLength}} characters,
+        you've only typed {{usernameRef.errors?.minlength.actualLength}}
+      </div>
+
+      <hr>
+      {{usernameRef.pristine}}
+      {{usernameRef.dirty}}
+      <hr>
+      {{usernameRef.untouched}}
+      {{usernameRef.touched}}
+      <hr>
+      <button type="submit">submit</button>
+    </form>
+    {{formRef.value | json}}
+    Valid: {{formRef.valid | json}}
+  </div>
+</div>
+<hr>
+<div class="row">
+  <div class="col-xs-12">
+    <app-radio></app-radio>
+  </div>
+</div>
+<hr>
+<div class="row">
+  <div class="col-xs-12">
+    <app-select></app-select>
+  </div>
+</div>
