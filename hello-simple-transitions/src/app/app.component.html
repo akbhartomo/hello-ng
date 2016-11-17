@@ -1,0 +1,10 @@
+<div
+  *ngIf="isHere"
+  [@signal]="signal"
+  class="traffic-light"></div>
+
+<hr>
+<button (click)="onGoClick()">go</button>
+<button (click)="onStopClick()">stop</button>
+<hr>
+<button (click)="onToggleClick()">Toggle</button>
